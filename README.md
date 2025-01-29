@@ -18,6 +18,26 @@ This repository contains a selection of code, exercises, and projects completed 
 (Selected ML exercises will be added here soon.) - I am currently reviewing my ML exercises and will add a selection of the most relevant ones to this section.
 
 
+## Relevant Coursework and Degrees
+
+### Completed
+
+* BSc Statistics (185 ECTS)
+
+*(All listed courses are worth 5 ECTS)*
+
+* Introduction to Data Science
+* Big Data Platforms
+* Engineering of Machine Learning Systems
+* Introduction to Machine Learning
+* Introduction to Artificial Intelligence
+
+### On-going
+
+* Data Science Project - Creating a user-friendly interface for data processing and analytics of medical data (R, Python)
+* Seminar on Data Management for Machine Learning - Literature review and presentation
+* Network Analysis (Python)
+
 ## Technologies Used
 
 *   **Programming Languages:**
