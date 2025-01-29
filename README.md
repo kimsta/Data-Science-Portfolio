@@ -41,7 +41,7 @@ This repository contains a selection of code, exercises, and projects completed 
 ## Technologies Used
 
 *   **Programming Languages:**
-    *   **R:** tidyverse, caret, randomForest
+    *   **R:** tidyverse, caret, randomForest, boot, e1071, Metrics
     *   **Python:** pandas, numpy, scikit-learn, matplotlib, statsmodels
 *   **Machine Learning Operations (MLOps):** MLflow (basic usage)
 *   **Big Data:** Spark (basic exploration)
