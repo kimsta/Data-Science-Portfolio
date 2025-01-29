@@ -15,8 +15,9 @@ Each `.Rmd` file contains the exercises and their solutions.  To run the exercis
 
 1.  Ensure you have the required R packages installed.  See the individual `.Rmd` files for a list of required packages.  You can install the packages using `install.packages(c("package1", "package2", ...))`.
 2.  Open the `.Rmd` file in RStudio.
-3.  Knit the `.Rmd` file to generate the output (e.g., PDF or HTML).
+3.  Save datafiles into location where .rmd file can read these.
+4.  Knit the `.Rmd` file to generate the output (e.g., PDF or HTML).
 
 ## Data
 
-The data used in the exercises is either included with the exercises or is available from publicly accessible sources.  See the individual `.Rmd` files for details on the data source.
+The data used in the exercises is in data folder found in the same folder as this file. Data related to kaggle competition may not be shared here (set1 problem 1).
