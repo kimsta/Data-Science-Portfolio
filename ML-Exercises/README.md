@@ -4,7 +4,7 @@ This folder contains selected machine learning exercises from my Master's course
 
 ## Exercises
 
-*   **Exercise 1:** [Brief description of Exercise 1] - `Exercise1.Rmd`
+*   **Exercise 1:** [The exercises cover topics such as linear regression, model evaluation, bias-variance tradeoff, and regularization.  See the R Markdown files for details.] - `IML-set1.Rmd`
 *   **Exercise 2:** [Brief description of Exercise 2] - `Exercise2.Rmd`
 *   **Exercise 3:** [Brief description of Exercise 3] - `Exercise3.Rmd`
 *   **(More exercises will be listed here as they are added)**
