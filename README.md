@@ -13,9 +13,9 @@ This repository contains a selection of code, exercises, and projects completed 
     *   Achieved a top 50% ranking in the competition.
 
 
-## Exercises
+## Exercises and Code Examples
 
-(Selected ML exercises will be added here soon.) - I am currently reviewing my ML exercises and will add a selection of the most relevant ones to this section.
+* Machine Learning [Link to selected exercises](https://github.com/kimsta/Masters-Data-Science-Coursework/tree/main/ML-Exercises)
 
 
 ## Relevant Coursework and Degrees
@@ -41,7 +41,7 @@ This repository contains a selection of code, exercises, and projects completed 
 ## Technologies Used
 
 *   **Programming Languages:**
-    *   **R:** tidyverse, caret, randomForest
+    *   **R:** tidyverse, caret, randomForest, boot, e1071, Metrics
     *   **Python:** pandas, numpy, scikit-learn, matplotlib, statsmodels
 *   **Machine Learning Operations (MLOps):** MLflow (basic usage)
 *   **Big Data:** Spark (basic exploration)

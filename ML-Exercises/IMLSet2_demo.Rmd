@@ -1,0 +1,390 @@
+---
+title: "IMLSet2"
+author: "KS"
+date: "2025-01-30"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, wrap = TRUE)
+```
+
+```{r}
+# Load libraries
+library(tidyverse)
+library(glmnetUtils)
+library(e1071)
+library(caret)
+```
+
+Due to PDF formatting constraints, some long code lines in this section may extend slightly beyond the page boundary. The complete, correctly formatted R Markdown document is available upon request or from my github repository:
+
+https://github.com/kimsta/Masters-Data-Science-Coursework/tree/main/ML-Exercises
+
+## Problem 8: A Comparison of Logistic Regression and Lasso for Adelie Penguin Classification
+
+```{r}
+# Load data
+train_data <- read_csv("penguins_train.csv")
+test_data <- read_csv("penguins_test.csv")
+
+```
+
+```{r}
+# Preprocess data: Create isAdelie column and remove species
+train_data_processed <- train_data %>%
+    mutate(isAdelie = ifelse(species == "Adelie", 1, 0)) %>%
+    select(-species)
+
+test_data_processed <- test_data %>%
+    mutate(isAdelie = ifelse(species == "Adelie", 1, 0)) %>%
+    select(-species)
+```
+
+```{r}
+# Fit logistic regression model (without normalization)
+logistic_model <- glm(isAdelie ~ ., data = train_data_processed, family = binomial)
+
+# Print coefficients
+print(coefficients(logistic_model))
+```
+
+```{r}
+# Make predictions on training data
+train_predictions <- predict(logistic_model, newdata = train_data_processed, type = "response")
+train_predictions_class <- ifelse(train_predictions > 0.5, 1, 0)
+
+# Calculate training accuracy
+train_accuracy <- mean(train_predictions_class == train_data_processed$isAdelie)
+print(paste("Training Accuracy (Logistic Regression):", train_accuracy))
+```
+
+```{r}
+# Make predictions on test data
+test_predictions <- predict(logistic_model, newdata = test_data_processed, type = "response")
+test_predictions_class <- ifelse(test_predictions > 0.5, 1, 0)
+
+# Calculate test accuracy
+test_accuracy <- mean(test_predictions_class == test_data_processed$isAdelie)
+print(paste("Test Accuracy (Logistic Regression):", test_accuracy))
+```
+
+```{r}
+# Create design matrix for plotting (add ones column)
+x_matrix <- train_data_processed %>% 
+    select(-isAdelie) %>%
+    mutate(ones = 1) %>% 
+    relocate(ones, .before = everything()) %>%
+    as.matrix()
+
+```
+
+```{r}
+# Extract coefficients and transpose
+coefs <- coefficients(logistic_model)
+coefs_transposed <- t(coefs)
+coefs_transposed <- as.matrix(coefs_transposed)
+```
+
+```{r}
+# Plot linear part vs. probabilities (Logistic Regression)
+ggplot(train_data_processed, aes(x = t(coefs_transposed %*% t(x_matrix)), y = train_predictions, color = factor(train_predictions_class))) +
+    geom_point() +
+    labs(title = "Linear Part vs. Probabilities (Logistic Regression)", x = "Linear Part", y = "Probabilities", color = "Is Adelie") +
+    theme_minimal()
+```
+
+```{r}
+# Fit Lasso logistic regression model
+lasso_model <- cv.glmnet(isAdelie ~ ., data = train_data_processed, alpha = 1, family = "binomial")
+
+# Print Lasso coefficients
+print(coef(lasso_model)) # Use coef() for glmnet objects
+```
+
+```{r}
+# Make predictions on training data (Lasso)
+train_predictions_lasso <- predict(lasso_model, newdata = train_data_processed, type = "response")
+train_predictions_class_lasso <- ifelse(train_predictions_lasso > 0.5, 1, 0)
+
+# Calculate training accuracy (Lasso)
+train_accuracy_lasso <- mean(train_predictions_class_lasso == train_data_processed$isAdelie)
+print(paste("Training Accuracy (Lasso):", train_accuracy_lasso))
+
+```
+
+```{r}
+# Make predictions on test data (Lasso)
+test_predictions_lasso <- predict(lasso_model, newdata = test_data_processed, type = "response")
+test_predictions_class_lasso <- ifelse(test_predictions_lasso > 0.5, 1, 0)
+
+# Calculate test accuracy (Lasso)
+test_accuracy_lasso <- mean(test_predictions_class_lasso == test_data_processed$isAdelie)
+print(paste("Test Accuracy (Lasso):", test_accuracy_lasso))
+```
+
+```{r}
+# Extract Lasso coefficients and transpose (using coef for glmnet)
+coefs_lasso <- as.matrix(coef(lasso_model))
+coefs_transposed_lasso <- t(coefs_lasso)
+coefs_transposed_lasso <- as.matrix(coefs_transposed_lasso)
+
+```
+
+```{r}
+# Plot linear part vs. probabilities (Lasso)
+ggplot(train_data_processed, aes(x = t(coefs_transposed_lasso %*% t(x_matrix)), y = train_predictions_lasso, color = factor(train_predictions_class_lasso))) +
+    geom_point() +
+    labs(title = "Linear Part vs. Probabilities (Lasso)", x = "Linear Part", y = "Probabilities", color = "Is Adelie") +
+    theme_minimal()
+```
+
+```{r}
+# Calculate correlation matrix (for all predictors)
+cor_matrix <- cor(train_data_processed %>% select(-isAdelie))
+print(cor_matrix)
+
+```
+
+This analysis compared the performance of logistic regression and Lasso logistic regression in classifying Adelie penguins. Using Lasso improved accuracy on training set. 
+
+The correlation matrix shows correlations between some predictors, which can affect model interpretation.  Lasso can be helpful in such cases. 
+
+Lasso regularization smoothed the decision boundary, reflected in the more sigmoid-like shape of the probability curve, by simplifying the model and reducing its sensitivity to noise compared to standard logistic regression.
+
+## Problem 10: Applying Naive Bayes to Penguin Species Classification
+
+Use the same preprocessed data from Problem 8 (train_data_processed and test_data_processed)
+
+#### Task a: Calculate means and standard deviations for each class
+
+```{r}
+# Calculate means for each predictor, grouped by class
+mean_values <- aggregate(. ~ isAdelie, data = train_data_processed, mean)
+print(mean_values)
+```
+
+```{r}
+# Calculate standard deviations for each predictor, grouped by class
+sd_values <- aggregate(. ~ isAdelie, data = train_data_processed, sd)
+print(sd_values)
+```
+
+```{r}
+# Estimate class priors with Laplace smoothing (pseudo-count of 1)
+total_count <- nrow(train_data_processed)
+class_counts <- train_data_processed %>% count(isAdelie)
+num_classes <- 2  # Two classes (Adelie and not Adelie)
+class_priors <- class_counts %>% 
+    mutate(prior = (n + 1) / (total_count + num_classes)) %>% 
+    select(isAdelie, prior)
+print(class_priors)
+```
+
+```{r}
+# ***Define means_0, sds_0, prior_0, means_1, sds_1, prior_1 HERE***
+means_0 <- mean_values[mean_values$isAdelie == 0, -1] # Select all columns except isAdelie
+sds_0 <- sd_values[sd_values$isAdelie == 0, -1]
+prior_0 <- class_priors[class_priors$isAdelie == 0, "prior"]
+
+means_1 <- mean_values[mean_values$isAdelie == 1, -1]
+sds_1 <- sd_values[sd_values$isAdelie == 1, -1]
+prior_1 <- class_priors[class_priors$isAdelie == 1, "prior"]
+
+means_0 <- as.numeric(means_0)
+sds_0 <- as.numeric(sds_0)
+means_1 <- as.numeric(means_1)
+sds_1 <- as.numeric(sds_1)
+```
+
+
+#### Task b: Explain the Naive Bayes Calculation (Math in R Markdown)
+
+Let's say we have an observation vector $$ \mathbf{x} = \begin{pmatrix} x_1 & x_2 & x_3 & x_4 \end{pmatrix} $$
+
+And each element is coming from it's own normal distribution $$ \begin{pmatrix} x_1 \sim \mathcal{N}(\mu_1, \sigma_1^2) & x_2 \sim \mathcal{N}(\mu_2, \sigma_2^2) & x_3 \sim \mathcal{N}(\mu_3, \sigma_3^2) & x_4 \sim \mathcal{N}(\mu_4, \sigma_4^2) \end{pmatrix} $$
+
+We calculated parameters for these distributions in task a.
+
+Now we can calculate following probability $$ p(y = 1 \mid \mathbf{x}) $$
+
+We use Bayes theorem to express this probability like this:
+
+$$ \frac{p(\mathbf{X} = \mathbf{x} \mid y = 1)}{p(\mathbf{X} = \mathbf{x} \mid y = 1) + p(\mathbf{X} = \mathbf{x} \mid y = 0)} $$
+
+We use Naive Bayes and that means we make assumption that variables are independent of each others. This leads us to following expression with class priors calculated in task a:
+
+And this expands to this:$$ \small{\frac{p(y = 1) \cdot p(x_1 \mid y = 1) \cdot p(x_2 \mid y = 1) \cdot p(x_3 \mid y = 1) \cdot p(x_4 \mid y = 1)}{p(y = 1) \cdot p(x_1 \mid y = 1) \cdot p(x_2 \mid y = 1) \cdot p(x_3 \mid y = 1) \cdot p(x_4 \mid y = 1) + p(y = 0) \cdot p(x_1 \mid y = 0) \cdot p(x_2 \mid y = 0) \cdot p(x_3 \mid y = 0) \cdot p(x_4 \mid y = 0)}} $$
+
+(last term is p(x_4 given y=0), can't find a way to fit this print)
+
+#### Task c: Implement Naive Bayes in R
+
+```{r}
+# Helper function to calculate the probability density for a single feature given class
+calculate_feature_probability <- function(x_i, mu_k, sigma_k) {
+    dnorm(x_i, mean = mu_k, sd = sigma_k)
+}
+```
+
+```{r}
+# Helper function to calculate the probability of a class given the features
+calculate_class_probability <- function(x, means, sds, prior) {
+    probabilities <- sapply(seq_along(x), function(i) {
+        calculate_feature_probability(x[i], means[i], sds[i])
+    })
+    return(log(prior) + sum(log(probabilities))) # Using log probabilities for numerical stability
+}
+
+```
+
+```{r}
+# Helper function to predict the class for a new observation
+predict_naive_bayes <- function(x, means_0, sds_0, prior_0, means_1, sds_1, prior_1) {
+    prob_0 <- calculate_class_probability(x, means_0, sds_0, prior_0)
+    prob_1 <- calculate_class_probability(x, means_1, sds_1, prior_1)
+
+    if (prob_0 > prob_1) {
+        return(0)
+    } else {
+        return(1)
+    }
+}
+```
+
+```{r}
+# Prepare test data predictors
+test_predictors <- test_data_processed %>% select(-isAdelie)
+
+# Make predictions on the test set
+predictions <- numeric(nrow(test_data_processed))
+for (i in 1:nrow(test_data_processed)) {
+    x_new <- as.numeric(test_predictors[i, ])
+    predictions[i] <- predict_naive_bayes(x_new, means_0, sds_0, prior_0, means_1, sds_1, prior_1)
+}
+
+```
+
+```{r}
+# Calculate test accuracy
+test_accuracy_nb <- mean(predictions == test_data_processed$isAdelie)
+print(paste("Test Accuracy (Naive Bayes):", test_accuracy_nb))
+
+```
+
+```{r}
+# Calculate and print probabilities for the first 3 penguins
+probabilities_first_3 <- numeric(3)
+for (i in 1:3) {
+  x_new <- as.numeric(test_predictors[i, ])
+  probabilities_first_3[i] <- exp(calculate_class_probability(x_new, means_1, sds_1, prior_1) - 
+                                    log(exp(calculate_class_probability(x_new, means_0, sds_0, prior_0)) +
+                                        exp(calculate_class_probability(x_new, means_1, sds_1, prior_1))))
+}
+print("Probabilities for first 3 penguins (P(isAdelie=1|x))")
+print(probabilities_first_3)
+
+```
+
+## Problem 12: Model Comparison with Varying Training Set Size
+
+```{r}
+# Load data sets
+toy_test <- read_csv("toy_test.csv")
+toy_train_8 <- read_csv("toy_train_8.csv")
+toy_train_16 <- read_csv("toy_train_16.csv")
+toy_train_32 <- read_csv("toy_train_32.csv")
+toy_train_64 <- read_csv("toy_train_64.csv")
+toy_train_128 <- read_csv("toy_train_128.csv")
+toy_train_256 <- read_csv("toy_train_256.csv")
+toy_train_512 <- read_csv("toy_train_512.csv")
+toy_train_1024 <- read_csv("toy_train_1024.csv")
+toy_train_2048 <- read_csv("toy_train_2048.csv")
+toy_train_4096 <- read_csv("toy_train_4096.csv")
+```
+
+```{r}
+# Define true probability function
+p_true <- function(x1, x2) {
+    t <- 1/2 + 2*x1 - x2 - x1*x2/2
+    return(1 / (1 + exp(-t)))
+}
+```
+
+#### Task a: Model Training and Evaluation
+
+```{r}
+# Helper functions
+perplexity <- function(log_loss) {
+    exp(log_loss)
+}
+
+logLoss <- function(actual, predicted) {
+    log_predicted <- log(pmax(predicted, 1e-15))
+    log_1_minus_predicted <- log(pmax(1 - predicted, 1e-15))
+    -mean(actual * log_predicted + (1 - actual) * log_1_minus_predicted)
+}
+
+calculate_probabilities <- function(train_data, test_data) {
+    nb_model <- naiveBayes(y ~ ., data = train_data, laplace = 1)
+    lr_model <- glm(y ~ x1 + x2, data = train_data, family = "binomial")
+    lri_model <- glm(y ~ x1 * x2, data = train_data, family = "binomial")
+    dummy_model <- glm(y ~ 1, data = train_data, family = "binomial")
+
+    nb_probs <- predict(nb_model, newdata = test_data, type = "raw")[,2]
+    lr_probs <- predict(lr_model, newdata = test_data, type = "response")
+    lri_probs <- predict(lri_model, newdata = test_data, type = "response")
+    optimal_probs <- p_true(test_data$x1, test_data$x2)
+    dummy_probs <- predict(dummy_model, newdata = test_data, type = "response")
+
+    return(list(nb_probs = nb_probs, lr_probs = lr_probs, lri_probs = lri_probs, optimal_probs = optimal_probs, dummy_probs = dummy_probs))
+}
+```
+
+```{r}
+# Initialize results data frames
+accuracy_results <- data.frame(n = numeric(0), NB = numeric(0), LR = numeric(0), LRi = numeric(0), OptimalBayes = numeric(0), Dummy = numeric(0))
+perplexity_results <- data.frame(n = numeric(0), NB = numeric(0), LR = numeric(0), LRi = numeric(0), OptimalBayes = numeric(0), Dummy = numeric(0))
+```
+
+```{r}
+# Loop through training set sizes
+for (n in c(8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096)) {
+    train_data <- get(paste0("toy_train_", n))
+    probabilities <- calculate_probabilities(train_data, toy_test)
+
+    nb_acc <- confusionMatrix(as.factor(ifelse(probabilities$nb_probs > 0.5, 1, 0)), as.factor(toy_test$y))$overall["Accuracy"]
+    lr_acc <- confusionMatrix(as.factor(ifelse(probabilities$lr_probs > 0.5, 1, 0)), as.factor(toy_test$y))$overall["Accuracy"]
+    lri_acc <- confusionMatrix(as.factor(ifelse(probabilities$lri_probs > 0.5, 1, 0)), as.factor(toy_test$y))$overall["Accuracy"]
+    optimal_acc <- confusionMatrix(as.factor(ifelse(probabilities$optimal_probs > 0.5, 1, 0)), as.factor(toy_test$y))$overall["Accuracy"]
+    dummy_acc <- confusionMatrix(as.factor(ifelse(probabilities$dummy_probs > 0.5, 1, 0)), as.factor(toy_test$y))$overall["Accuracy"]
+
+    accuracy_results <- rbind(accuracy_results, data.frame(n = n, NB = nb_acc, LR = lr_acc, LRi = lri_acc, OptimalBayes = optimal_acc, Dummy = dummy_acc))
+
+    nb_perp <- perplexity(logLoss(toy_test$y, probabilities$nb_probs))
+    lr_perp <- perplexity(logLoss(toy_test$y, probabilities$lr_probs))
+    lri_perp <- perplexity(logLoss(toy_test$y, probabilities$lri_probs))
+    optimal_perp <- perplexity(logLoss(toy_test$y, probabilities$optimal_probs))
+    dummy_perp <- perplexity(logLoss(toy_test$y, probabilities$dummy_probs))
+
+    perplexity_results <- rbind(perplexity_results, data.frame(n = n, NB = nb_perp, LR = lr_perp, LRi = lri_perp, OptimalBayes = optimal_perp, Dummy = dummy_perp))
+}
+
+```
+
+```{r}
+# Print results tables
+print(accuracy_results)
+print(perplexity_results)
+```
+
+#### Task b: Model Coefficients and Discussion
+
+```{r}
+
+lri_model_largest <- glm(y ~ x1 * x2, data = toy_train_4096, family = "binomial")
+print(coef(lri_model_largest))
+```
+
+The coefficients of the logistic regression model with interaction terms on the largest training set are shown above. They are qualitatively similar to the coefficients in the true data generating process, further supporting the good performance of this model.
+
