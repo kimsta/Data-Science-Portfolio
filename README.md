@@ -1,56 +1,53 @@
-# Master's in Data Science Coursework at the University of Helsinki
+# Kim Ståhlberg | Data Science Portfolio
 
-This repository contains a selection of code, exercises, and projects completed as part of my Master's program in Data Science at the University of Helsinki.  It demonstrates my skills in machine learning (including regression, classification, clustering, and deep learning), statistical modeling, data visualization (using R and Python libraries), and data wrangling.
+Hi, I'm Kim, a Data Scientist pursuing my Master's in Data Science at the University of Helsinki with a background in Statistics (BSc). This repository showcases my project work in machine learning, graph analytics, and statistical modeling.
 
-## Projects
+**Contact:** [stahlberg.kim@gmail.com](mailto:your.email@example.com)
 
-*   **Revenue Forecasting Model for CGI Finland:** [Link to CGI-Revenue-Forecasting folder](https://github.com/kimsta/Masters-Data-Science-Coursework/tree/main/Revenue-Forecasting) - Developed, as part of a three-person team, a revenue forecasting model and application for CGI Finland (ICT) using a large historical transaction dataset.  My primary contributions focused on the core time series forecasting model, implemented in Python using libraries such as NumPy, Pandas, Matplotlib, and Statsmodels.  The model incorporated seasonal decomposition to capture trends and seasonality in the data.  I also contributed to defining UI requirements, testing the application, and creating user and installation documentation.  The client accepted the model, and it is currently being used for user feedback collection while shadowing their existing forecasting methods. Preliminary results suggest improved accuracy and potential efficiency gains.  Due to data confidentiality agreements, the code for this project cannot be shared publicly. However, I am happy to discuss the technical details of the project and my contributions in more detail.
+---
 
-*   **Atmospheric Vapor Pressure Prediction:** [Link to shared GitHub repository](https://github.com/withoutglue/predicting_saturation_vapour_pressure) - Participated in a Kaggle competition for a University of Helsinki Data Science Master's course, predicting molecular vapor pressure using R. My contributions included:
-    *   Exploratory Data Analysis (EDA) using R and visualization libraries.
-    *   Feature engineering and selection (including PCA).
-    *   Model training and evaluation (Linear Regression, PCR, Random Forest, SVR).  SVR was selected as the final model based on R-squared.
-    *   Achieved a top 50% ranking in the competition.
+## Featured Projects
 
+### 1. High-Performance Travel Network Analysis (Master's Thesis)
+As a Data Science Trainee at VATT Institute for Economic Research, I am engineering a high-performance Python system to replace an inefficient legacy workflow (QGIS/Stata). The project's goal is to compute an all-pairs travel-time matrix for a **nation-wide historical multi-modal transport network** with **tens of thousands of nodes**.
 
-## Exercises and Code Examples
+* **My Contribution:** I am architecting the entire Python pipeline, which involves parsing QGIS data, building the graph structure, and implementing optimized shortest-path algorithms. The core of the project focuses on performance engineering, including parallel processing and migrating logic to C-backed libraries to enable large-scale longitudinal and sensitivity analyses that were previously computationally infeasible.
+* **Outcome:** This project forms the basis of my Master's thesis. The resulting high-performance tool will be a key asset for VATT's economic research on infrastructure impact.
+* **Tech Stack:** Python, NetworkX, igraph, graph-tool (for evaluation), Parallel Processing.
 
-* Machine Learning [Link to selected exercises](https://github.com/kimsta/Masters-Data-Science-Coursework/tree/main/ML-Exercises)
+### 2. NLP Pipeline for Text Classification
+In a separate project as a Data Science Trainee at VATT, I developed a complete NLP pipeline to classify free-form text from thousands of Finnish-language renovation permits.
 
+* **My Contribution:** I was responsible for the end-to-end development, from data cleaning and preprocessing to model selection and evaluation. This involved applying various NLP techniques, including feature extraction (TF-IDF) and implementing classification models (e.g., SVM, Naive Bayes) to categorize renovations based on their descriptions. I also worked on unsupervised clustering methods to help identify novel renovation types.
+* **Outcome:** The model successfully categorizes permits, providing structured data for economic analysis that was previously locked in unstructured text.
+* **Tech Stack:** Python, scikit-learn, NLTK, Pandas.
 
-## Relevant Coursework and Degrees
+### 3. Automated ANOVA Pipeline for BioMedicum Helsinki
+For the Koistinaho Lab at the University of Helsinki, I took a lead role in developing a user-friendly statistical pipeline in R to automate the processing of complex multi-electrode array (MEA) data, replacing a time-consuming manual workflow.
 
-### Completed
+* **My Contribution:** I architected the core R analytics engine which automates the end-to-end analysis. This included implementing functions for data cleaning, outlier detection, normalization to a control treatment, and statistical validation (Shapiro-Wilk for normality, Levene's test for variance). A key feature I designed was the logic that selects and executes one of four distinct ANOVA models based on the user’s research questions, and then defines the appropriate post-hoc analysis.
+* **Outcome:** The final tool provides researchers with a reproducible and highly efficient workflow, enabling rapid and consistent statistical analysis of their experimental data.
+* **Tech Stack:** R, Tidyverse, rstatix
 
-* BSc Statistics (185 ECTS)
+### 4. Enterprise Revenue Forecasting for CGI Finland
+As part of a university course project, our team developed a revenue forecasting model and application for CGI Finland based on a large historical transaction dataset.
 
-*(All listed courses are worth 5 ECTS)*
+* **My Contribution:** I designed and implemented the core time series forecasting model using Python (Pandas, Statsmodels). My model used seasonal decomposition to accurately identify and predict complex trends and seasonal patterns in the revenue data.
+* **Outcome:** The model was accepted by the client and is currently shadowing their existing forecasting methods to validate its improved accuracy and efficiency.
+* **Tech Stack:** Python, Pandas, NumPy, Matplotlib, Statsmodels
 
-* Introduction to Data Science
-* Big Data Platforms
-* Engineering of Machine Learning Systems
-* Introduction to Machine Learning
-* Introduction to Artificial Intelligence
+---
 
-### On-going
+## Technical Skills
 
-* Data Science Project - Creating a user-friendly interface for data processing and analytics of medical data (R, Python)
-* Seminar on Data Management for Machine Learning - Literature review and presentation
-* Network Analysis (Python)
+* **Languages:** Python, R, SQL
+* **Python Libraries:** scikit-learn, pandas, numpy, statsmodels, NetworkX, igraph
+* **R Libraries:** tidyverse, caret, randomForest, e1071, rstatix
+* **MLOps & Big Data:** Docker, Kubernetes (K8s), MLflow, Spark
+* **Version Control:** Git, GitHub
 
-## Technologies Used
-
-*   **Programming Languages:**
-    *   **R:** tidyverse, caret, randomForest, boot, e1071, Metrics
-    *   **Python:** pandas, numpy, scikit-learn, matplotlib, statsmodels
-*   **Machine Learning Operations (MLOps):** MLflow (basic usage)
-*   **Big Data:** Spark (basic exploration)
-*   **Containerization:** Docker
-*   **Orchestration:** Kubernetes (K8s)
-*   **Version Control:** Git
+---
 
 ## License
 
-This code is licensed under the MIT License.
-
-Copyright (c) 2025 Kim Ståhlberg
+Copyright (c) 2025 Kim Ståhlberg. Licensed under the MIT License.
