@@ -13,7 +13,7 @@ As a Data Science Trainee at VATT, I engineered a pipeline to provide a high-per
 
 * **My Contribution:** I built the new pipeline from scratch and created a framework to benchmark its performance. The goal was to compare a baseline pure-Python implementation (`NetworkX`) and an optimized C-backed implementation (`igraph`) against each other and the original legacy workflow.
 * **Outcome:** The `igraph` implementation was validated to be numerically identical to the baseline (`NetworkX`) while achieving a **~12x performance speedup** (~1 min vs. ~12 minutes). The overall Python pipeline provides a more automated and reproducible solution than the original GIS-based method.
-* **Public Demo:** A public notebook demonstrating a **~18x performance gain** on a similarly scaled random graph **[is available here](https://github.com/kimsta/Python-Graph-Benchmark)**.
+* **Public Demo:** A public notebook demonstrating a **~20x performance gain** on a similarly scaled random graph **[is available here](https://github.com/kimsta/Python-Graph-Benchmark)**.
 * **Tech Stack:** Python, geopandas, python-igraph, NetworkX, joblib.
 
 ### 2. NLP Pipeline for Automated Text Classification
