@@ -21,7 +21,7 @@ In a separate trainee project at VATT, I designed and delivered a complete two-s
 
 * **My Contribution:** I managed the end-to-end workflow. This included a modern approach to programmatic labeling using the Google Gemini API, and training `spaCy` models for both stages of the pipeline.
 * **Outcome:** The first-stage binary filter achieved a **93% F1-score**, and the final multi-label classifier achieved a **~90% F1-score** on its primary categories, successfully automating a massive manual data-structuring task.
-* **Public Demo:** A public version of this pipeline, demonstrating the same techniques on a Finnish movie review dataset, **is available here.** `[<-- Link to your NLP demo repo]`
+* **Public Demo:** A public version of this pipeline, demonstrating the same techniques on a Finnish sentiment dataset, **[is available here](https://github.com/kimsta/spaCy_NLP_Sentiment_Demo)**.
 * **Tech Stack:** Python, spaCy, scikit-learn, Pandas, Google Gemini API.
 
 ### 3. Automated ANOVA Pipeline for BioMedicum Helsinki
