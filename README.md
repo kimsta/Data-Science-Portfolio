@@ -29,7 +29,8 @@ As part of a five-person team on a Master's level Data Science Project, we devel
 
 * **My Contribution:** I took the lead on developing the core R analytics engine. My primary responsibilities were to architect the data cleaning and validation functions (normality, variance) and to implement the primary analysis logic, which automatically selects one of four distinct ANOVA models based on user input. I also communicated directly with the client-scientist to translate their research needs into technical requirements for the pipeline.
 * **Outcome:** Our team delivered a tool that provides researchers with a reproducible and highly efficient workflow, significantly reducing manual analysis time.
-* **Tech Stack:** R, Tidyverse, rstatix.
+* **Public Demo:** An R Markdown file demonstrating the core logic of this automated pipeline, **[is available here](https://github.com/kimsta/R_Automated_ANOVA)**.
+* **Tech Stack:** R, Tidyverse, rstatix, broom.
 
 ### 4. Enterprise Revenue Forecasting for CGI Finland
 As part of a university course project, our team developed a revenue forecasting model for CGI Finland based a large historical transaction dataset.
