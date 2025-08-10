@@ -24,15 +24,23 @@ In a separate trainee project at VATT, I designed and delivered a complete two-s
 * **Public Demo:** A public version of this pipeline, demonstrating the same techniques on a Finnish sentiment dataset, **[is available here](https://github.com/kimsta/spaCy_NLP_Sentiment_Demo)**.
 * **Tech Stack:** Python, spaCy, scikit-learn, Pandas, Google Gemini API.
 
-### 3. Automated ANOVA Pipeline for BioMedicum Helsinki
+### 3. Statistical Deep Dive into Padel Performance
+This personal project is a comprehensive case study in applying a full statistical workflow to a sparse, messy, real-world dataset of amateur padel match results.
+
+* **Project Scope:** I managed the end-to-end project, from data collection and wrangling of complex scores to a full statistical analysis. The project's core is a dual-paradigm analysis, using both frequentist (hypothesis tests, power analysis) and Bayesian (posterior distributions) methods to rigorously evaluate player performance under uncertainty.
+* **Outcome:** The analysis produced a reliable, game-level player ranking system and quantified the statistical uncertainty for each player. The entire project is presented in a reproducible R Markdown report, showcasing a complete workflow from raw data to final insights.
+* **View Project:** The full project, code, and detailed statistical report **[are available here](https://github.com/kimsta/Padel_Project)**.
+* **Tech Stack:** R, R Markdown, Tidyverse, ggplot2, knitr, pwr, here.
+
+### 4. Automated ANOVA Pipeline for BioMedicum Helsinki
 As part of a five-person team on a Master's level Data Science Project, we developed a user-friendly statistical pipeline in R for the Koistinaho Lab to automate the analysis of complex experimental data.
 
-* **My Contribution:** I took the lead on developing the core R analytics engine. My primary responsibilities were to architect the data cleaning and validation functions (normality, variance) and to implement the primary analysis logic, which automatically selects one of four distinct ANOVA models based on user input. I also communicated directly with the client-scientist to translate their research needs into technical requirements for the pipeline.
+* **My Contribution:** I took the lead on developing the core R analytics engine. My primary responsibilities were to architect the data cleaning and validation functions and to implement the primary analysis logic, which automatically selects one of four distinct ANOVA models based on user input. I also communicated directly with the client-scientist to translate their research needs into technical requirements for the pipeline.
 * **Outcome:** Our team delivered a tool that provides researchers with a reproducible and highly efficient workflow, significantly reducing manual analysis time.
 * **Public Demo:** An R Markdown file demonstrating the core logic of this automated pipeline, **[is available here](https://github.com/kimsta/R_Automated_ANOVA)**.
 * **Tech Stack:** R, Tidyverse, rstatix, broom.
 
-### 4. Enterprise Revenue Forecasting for CGI Finland
+### 5. Enterprise Revenue Forecasting for CGI Finland
 As part of a university course project, our team developed a revenue forecasting model for CGI Finland based a large historical transaction dataset.
 
 * **My Contribution:** I designed and implemented the core time series forecasting model using Python (Pandas, Statsmodels). My model used seasonal decomposition to accurately identify and predict complex trends and seasonal patterns.
@@ -45,10 +53,10 @@ As part of a university course project, our team developed a revenue forecasting
 
 * **Languages:** Python, R, SQL
 * **Python Libraries:**
-    * **ML & NLP:** scikit-learn, spaCy, statsmodels, joblib
-    * **Data & Geospatial:** pandas, numpy, geopandas
-    * **Graph & Network:** NetworkX, python-igraph
-    * **Visualization:** matplotlib
+    * **ML & NLP:** scikit-learn, spaCy, statsmodels, joblib
+    * **Data & Geospatial:** pandas, numpy, geopandas
+    * **Graph & Network:** NetworkX, python-igraph
+    * **Visualization:** matplotlib
 * **R Libraries:** Tidyverse, rstatix, caret, randomForest, e1071
 * **APIs & Cloud:** Google Gemini API
 * **MLOps & Big Data:** Docker, Kubernetes (K8s), MLflow, Spark
