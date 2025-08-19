@@ -8,12 +8,12 @@ Hi, I'm Kim, a Data Scientist completing my Master's in Data Science at the Univ
 
 ## Featured Projects
 
-### 1. High-Performance Travel Network Analysis
-As a Data Science Trainee at VATT, I engineered a pipeline to provide a high-performance Python alternative to an existing QGIS/Stata workflow for calculating a travel-time matrix for a nation-wide historical transport network.
+### 1. High-Performance Travel Network Analysis (Master's Thesis)
+This project, which began during my traineeship at VATT, is now the focus of my Master's thesis. The goal is to engineer a high-performance Python pipeline to provide a scalable and automated alternative to a computationally demanding GIS-based workflow, enabling new large-scale analyses that were previously impractical.
 
-* **My Contribution:** I built the new pipeline from scratch and created a framework to benchmark its performance. The goal was to compare a baseline pure-Python implementation (`NetworkX`) and an optimized C-backed implementation (`igraph`) against each other and the original legacy workflow.
-* **Outcome:** The `igraph` implementation was validated to be numerically identical to the baseline (`NetworkX`) while achieving a **~12x performance speedup** (~1 min vs. ~12 minutes). The overall Python pipeline provides a more automated and reproducible solution than the original GIS-based method.
-* **Public Demo:** A public notebook demonstrating a **~20x performance gain** on a similarly scaled random graph **[is available here](https://github.com/kimsta/Python-Graph-Benchmark)**.
+* **My Contribution:** I am managing the end-to-end development, from processing raw geospatial data to conducting a rigorous **scalability and algorithmic trade-off analysis**. This involves benchmarking traditional algorithms (`NetworkX` vs. `igraph`) against advanced methods, including exact algorithms (**Contraction Hierarchies**) and **Graph ML** approximation techniques like **Graph Embeddings (node2vec)**.
+* **Outcome:** On the confidential research data, the `igraph` implementation achieved a **~72x performance speedup** (~10 seconds vs. ~12 minutes on a single run) over the baseline, providing a more automated and reproducible solution for the research team.
+* **Public Demo:** A public notebook demonstrates this optimization technique on a similarly scaled, randomly generated graph. Due to structural differences between random graphs and real-world transport networks, the demo shows a **~14x performance gain**. **[The demo is available here](https://github.com/kimsta/Python-Graph-Benchmark)**.
 * **Tech Stack:** Python, geopandas, python-igraph, NetworkX, joblib.
 
 ### 2. NLP Pipeline for Automated Text Classification
