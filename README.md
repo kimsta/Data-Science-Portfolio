@@ -54,16 +54,15 @@ As part of a university course project, our team developed a revenue forecasting
 * **Tech Stack:** Python, Pandas, NumPy, Matplotlib, Statsmodels.
 
 ---
-
 ## Technical Skills
 
 * **Languages:** Python, R, SQL
 * **Python Libraries:**
-    * **ML & NLP:** scikit-learn, spaCy, statsmodels, joblib
+    * **Deep Learning, ML & NLP:** PyTorch, PyTorch Geometric, scikit-learn, spaCy, statsmodels, joblib
     * **Data & Geospatial:** pandas, numpy, geopandas
-    * **Graph & Network:** NetworkX, python-igraph
+    * **Graph & Network:** igraph, graph-tool, NetworkX
     * **Visualization:** matplotlib
-* **R Libraries:** Shiny, Tidyverse, ggplot2, knitr, pwr, rstatix, broom, here
+* **R Libraries:** Shiny, R Markdown, Tidyverse (dplyr, ggplot2), knitr, pwr, rstatix, broom
 * **APIs & Cloud:** Google Gemini API
 * **MLOps & Big Data:** Docker, Kubernetes (K8s), MLflow, Spark
 * **Version Control:** Git, GitHub
