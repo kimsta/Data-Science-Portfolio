@@ -9,12 +9,15 @@ Hi, I'm Kim, a Data Scientist completing my Master's in Data Science at the Univ
 ## Featured Projects
 
 ### 1. High-Performance Travel Network Analysis (Master's Thesis)
-This project, which began during my traineeship at VATT, is now the focus of my Master's thesis. The goal is to engineer a high-performance Python pipeline to provide a scalable and automated alternative to a computationally demanding GIS-based workflow, enabling new large-scale analyses that were previously impractical.
+For my Master's thesis, titled *"An Algorithmic Comparison for Efficiently Computing Travel-Time Matrices on a Multi-Modal Network,"* I am expanding on a project I began during my traineeship at VATT. The goal is to solve a computational bottleneck in economic research by developing and evaluating a high-performance Python pipeline for large-scale network analysis.
 
-* **My Contribution:** I am managing the end-to-end development, from processing raw geospatial data to conducting a rigorous **scalability and algorithmic trade-off analysis**. This involves benchmarking traditional algorithms (`NetworkX` vs. `igraph`) against advanced methods, including exact algorithms (**Contraction Hierarchies**) and **Graph ML** approximation techniques like **Graph Embeddings (node2vec)**.
-* **Outcome:** On the confidential research data, the `igraph` implementation achieved a **~72x performance speedup** (~10 seconds vs. ~12 minutes on a single run) over the baseline, providing a more automated and reproducible solution for the research team.
-* **Public Demo:** A public notebook demonstrates this optimization technique on a similarly scaled, randomly generated graph. Due to structural differences between random graphs and real-world transport networks, the demo shows a **~14x performance gain**. **[The demo is available here](https://github.com/kimsta/Python-Graph-Benchmark)**.
-* **Tech Stack:** Python, geopandas, python-igraph, NetworkX, joblib.
+* **Foundational Work & Preliminary Results:** The foundational data pipeline was partly engineered during my traineeship and has already yielded a strong **preliminary ~72x performance speedup** over baseline methods by leveraging C-backed libraries like `igraph`.
+
+* **Ongoing Thesis Research:** The current thesis work focuses on a rigorous comparative analysis of different algorithmic paradigms. This research evaluates the trade-offs between classic algorithms (**Dijkstra, A***), an advanced exact method (**Contraction Hierarchies**), and a learned approximation method (**Graph Neural Networks**).
+
+* **Public Demo:** A public notebook demonstrating the core optimization technique from the foundational work **[is available here](https://github.com/kimsta/Python-Graph-Benchmark)**.
+* **Tech Stack:** Python, PyTorch, PyTorch Geometric, geopandas, python-igraph, graph-tools, NetworkX.
+
 
 ### 2. NLP Pipeline for Automated Text Classification
 In a separate trainee project at VATT, I designed and delivered a complete two-stage NLP pipeline to classify thousands of unstructured, Finnish-language free form text entries.
@@ -27,11 +30,13 @@ In a separate trainee project at VATT, I designed and delivered a complete two-s
 ### 3. Statistical Deep Dive into Padel Performance
 This personal project is a comprehensive case study in applying a full statistical workflow—from data wrangling to a deployed web application—to a sparse, real-world dataset of amateur padel match results.
 
-* **Project Scope:** I managed the end-to-end project, which includes a dual-paradigm analysis using both frequentist (hypothesis tests, power analysis) and Bayesian (posterior distributions) methods to rigorously evaluate player performance under uncertainty.
-* **Outcome:** The analysis produced a reliable player ranking system, and the results are delivered through a live, interactive R Shiny web application that serves as a statistical exploration tool.
-* **Live App:** An interactive version of the analysis is deployed as an R Shiny app **[which you can use here](https://kimst.shinyapps.io/Padel_Stats_Explorer/)**.
-* **View Code:** The full project, source code, and detailed statistical report **[are available in the repo](https://github.com/kimsta/Padel_Project)**.
-* **Tech Stack:** R, **Shiny**, R Markdown, Tidyverse, ggplot2, knitr, pwr, here.
+* **My Contribution:** I executed this project end-to-end, from raw data collection and wrangling to the final deployment of an interactive web application.
+
+* **Key Methods:** The core of the project is a dual-paradigm statistical analysis. I used **frequentist** methods (hypothesis tests, power analysis) to establish statistical significance and complemented it with **Bayesian inference** (Beta-Binomial model) to quantify the uncertainty of each player's skill level.
+
+* **Outcome & Deliverables:** The analysis produced a robust player ranking system, which is delivered via a live **[R Shiny App](https://kimst.shinyapps.io/Padel_Stats_Explorer/)**. The complete source code and a detailed statistical report are available in the **[project repository](https://github.com/kimsta/Padel_Project)**.
+
+* **Tech Stack:** R, Shiny, R Markdown, Tidyverse, ggplot2, knitr, pwr.
 
 ### 4. Automated ANOVA Pipeline for BioMedicum Helsinki
 As part of a five-person team on a Master's level Data Science Project, we developed a user-friendly statistical pipeline in R for the Koistinaho Lab to automate the analysis of complex experimental data.
