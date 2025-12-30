@@ -9,14 +9,14 @@ Hi, I'm Kim, a Data Scientist completing my Master's in Data Science at the Univ
 ## Featured Projects
 
 ### 1. High-Performance Travel Network Analysis (Master's Thesis)
-For my Master's thesis, titled *"An Algorithmic Comparison for Efficiently Computing Travel-Time Matrices on a Multi-Modal Network,"* I am expanding on a project I began during my traineeship at VATT. The goal is to solve a computational bottleneck in economic research by developing and evaluating a high-performance Python pipeline for large-scale network analysis.
+For my Master's thesis, titled "An Algorithmic Comparison for Efficiently Computing Travel-Time Matrices on a Multi-Modal Network," I am expanding on a project I began during my traineeship at a public research institute. The goal is to solve a computational bottleneck in simulation pipelines by developing and evaluating a high-performance Python framework for large-scale network analysis.
 
-* **Foundational Work & Preliminary Results:** The foundational data pipeline was partly engineered during my traineeship and has already yielded a strong **preliminary ~72x performance speedup** over baseline methods by leveraging C-backed libraries like `igraph`.
+* **Foundational Work & Preliminary Results:** The foundational data pipeline was engineered during my traineeship and has already yielded a strong preliminary ~72x performance speedup over baseline methods by leveraging C-backed libraries like `igraph` over standard pure-Python implementations.
 
-* **Ongoing Thesis Research:** The current thesis work focuses on a rigorous comparative analysis of different algorithmic paradigms. This research evaluates the trade-offs between classic algorithms (**Dijkstra, A***), an advanced exact method (**Contraction Hierarchies**), and a learned approximation method (**Graph Neural Networks**).
+* **Thesis Research:** The current thesis work focuses on a rigorous comparative analysis of different algorithmic paradigms. This research evaluates the trade-offs between classic algorithms (**Dijkstra**), advanced exact methods (**Contraction Hierarchies**), and learned approximation methods (**Graph Neural Networks**).
 
-* **Public Demo:** A public notebook demonstrating the core optimization technique from the foundational work **[is available here](https://github.com/kimsta/Python-Graph-Benchmark)**.
-* **Tech Stack:** Python, PyTorch, PyTorch Geometric, geopandas, python-igraph, graph-tools, NetworkX.
+* **Performance Benchmark:** A public notebook demonstrating the core optimization technique from the foundational work **[is available here](https://github.com/kimsta/Python-Graph-Benchmark)**.
+* **Tech Stack:** Python, PyTorch, PyTorch Geometric, geopandas, python-igraph, graph-tools, NetworkX, NetworKit.
 
 
 ### 2. NLP Pipeline for Automated Text Classification
