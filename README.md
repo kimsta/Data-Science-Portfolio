@@ -36,31 +36,21 @@ A security audit demonstrating data leakage in Neural Networks and implementing 
 
 
 ### 4. NLP Pipeline for Automated Text Classification
-In a separate trainee project at VATT, I designed and delivered a complete two-stage NLP pipeline to classify thousands of unstructured, Finnish-language free form text entries.
+In a trainee project at VATT, I designed and delivered a complete two-stage NLP pipeline to classify thousands of unstructured, Finnish-language free form text entries.
 
-* **My Contribution:** I managed the end-to-end workflow. This included a modern approach to programmatic labeling using the Google Gemini API, and training `spaCy` models for both stages of the pipeline.
+* **My Contribution:** I managed the end-to-end workflow, including a modern approach to programmatic labeling using the Google Gemini API, and training `spaCy` models for both stages of the pipeline.
 * **Outcome:** The first-stage binary filter achieved a **93% F1-score**, and the final multi-label classifier achieved a **~90% F1-score** on its primary categories, successfully automating a massive manual data-structuring task.
 * **Public Demo:** A public version of this pipeline, demonstrating the same techniques on a Finnish sentiment dataset, **[is available here](https://github.com/kimsta/spaCy_NLP_Sentiment_Demo)**.
 * **Tech Stack:** Python, spaCy, scikit-learn, Pandas, Google Gemini API.
 
-### 5. Statistical Deep Dive into Padel Performance
-This personal project is a comprehensive case study in applying a full statistical workflow—from data wrangling to a deployed web application—to a sparse, real-world dataset of amateur padel match results.
 
-* **My Contribution:** I executed this project end-to-end, from raw data collection and wrangling to the final deployment of an interactive web application.
+### 5. Automated ANOVA Pipeline for BioMedicum Helsinki
+As part of a Master's level Data Science Project, our team developed a user-friendly statistical pipeline in R for the Koistinaho Lab to automate the analysis of complex experimental data.
 
-* **Key Methods:** The core of the project is a dual-paradigm statistical analysis. I used **frequentist** methods (hypothesis tests, power analysis) to establish statistical significance and complemented it with **Bayesian inference** (Beta-Binomial model) to quantify the uncertainty of each player's skill level.
-
-* **Outcome & Deliverables:** The analysis produced a robust player ranking system, which is delivered via a live **[R Shiny App](https://kimst.shinyapps.io/Padel_Stats_Explorer/)**. The complete source code and a detailed statistical report are available in the **[project repository](https://github.com/kimsta/Padel_Project)**.
-
-* **Tech Stack:** R, Shiny, R Markdown, Tidyverse, ggplot2, knitr, pwr.
-
-### 6. Automated ANOVA Pipeline for BioMedicum Helsinki
-As part of a five-person team on a Master's level Data Science Project, we developed a user-friendly statistical pipeline in R for the Koistinaho Lab to automate the analysis of complex experimental data.
-
-* **My Contribution:** I took the lead on developing the core R analytics engine. My primary responsibilities were to architect the data cleaning and validation functions and to implement the primary analysis logic, which automatically selects one of four distinct ANOVA models based on user input. I also communicated directly with the client-scientist to translate their research needs into technical requirements for the pipeline.
-* **Outcome:** Our team delivered a tool that provides researchers with a reproducible and highly efficient workflow, significantly reducing manual analysis time.
+* **My Contribution:** I led the development of the core R analytics engine, architecting data cleaning validation and the primary analysis logic which automatically selects distinct ANOVA models based on user input.
+* **Outcome:** A reproducible tool that significantly reduced manual analysis time for the researchers.
 * **Public Demo:** An R Markdown file demonstrating the core logic of this automated pipeline, **[is available here](https://github.com/kimsta/R_Automated_ANOVA)**.
-* **Tech Stack:** R, Tidyverse, rstatix, broom.
+* **Tech Stack:** R, Tidyverse, rstatix, broom, R Shiny
 
 ---
 ## Technical Skills
