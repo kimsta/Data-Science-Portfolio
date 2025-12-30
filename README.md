@@ -18,8 +18,21 @@ For my Master's thesis, titled "An Algorithmic Comparison for Efficiently Comput
 * **Performance Benchmark:** A public notebook demonstrating the core optimization technique from the foundational work **[is available here](https://github.com/kimsta/Python-Graph-Benchmark)**.
 * **Tech Stack:** Python, PyTorch, PyTorch Geometric, geopandas, python-igraph, graph-tools, NetworkX, NetworKit.
 
+### 2. Algorithmic Fairness Audit: Healthcare Risk Prediction
+A rigorous fairness audit and mitigation pipeline for a Heart Failure prediction model, designed to identify and correct safety disparities in medical diagnostics.
 
-### 2. NLP Pipeline for Automated Text Classification
+* **The Problem:** Through an intersectional audit (Age × Sex), I discovered a critical 4.5x Safety Disparity for young female patients compared to the reference group (older males). The standard model missed nearly 30% of heart failure cases in young women.
+* **The Solution:** I engineered a hybrid mitigation strategy using **Decoupled Classifiers** and **Threshold Tuning**. By training separate models for demographic subgroups and adjusting the decision boundary for the disadvantaged group, I successfully reduced the safety risk by ~50% without requiring additional data collection.
+* **Project Repository:** [Link](https://github.com/kimsta/fairness_bias_audit)
+* **Tech Stack:** Python, Scikit-learn, Pandas, Fairness Metrics.
+
+### 3. NLP Pipeline for Automated Text Classification
+In a separate trainee project at VATT, I designed and delivered a complete two-stage NLP pipeline to classify thousands of unstructured, Finnish-language free form text entries.
+
+* **My Contribution:** I managed the end-to-end workflow. This included a modern approach to programmatic labeling using the Google Gemini API, and training `spaCy` models for both stages of the pipeline.
+
+
+### 4. NLP Pipeline for Automated Text Classification
 In a separate trainee project at VATT, I designed and delivered a complete two-stage NLP pipeline to classify thousands of unstructured, Finnish-language free form text entries.
 
 * **My Contribution:** I managed the end-to-end workflow. This included a modern approach to programmatic labeling using the Google Gemini API, and training `spaCy` models for both stages of the pipeline.
@@ -27,7 +40,7 @@ In a separate trainee project at VATT, I designed and delivered a complete two-s
 * **Public Demo:** A public version of this pipeline, demonstrating the same techniques on a Finnish sentiment dataset, **[is available here](https://github.com/kimsta/spaCy_NLP_Sentiment_Demo)**.
 * **Tech Stack:** Python, spaCy, scikit-learn, Pandas, Google Gemini API.
 
-### 3. Statistical Deep Dive into Padel Performance
+### 5. Statistical Deep Dive into Padel Performance
 This personal project is a comprehensive case study in applying a full statistical workflow—from data wrangling to a deployed web application—to a sparse, real-world dataset of amateur padel match results.
 
 * **My Contribution:** I executed this project end-to-end, from raw data collection and wrangling to the final deployment of an interactive web application.
@@ -38,7 +51,7 @@ This personal project is a comprehensive case study in applying a full statistic
 
 * **Tech Stack:** R, Shiny, R Markdown, Tidyverse, ggplot2, knitr, pwr.
 
-### 4. Automated ANOVA Pipeline for BioMedicum Helsinki
+### 6. Automated ANOVA Pipeline for BioMedicum Helsinki
 As part of a five-person team on a Master's level Data Science Project, we developed a user-friendly statistical pipeline in R for the Koistinaho Lab to automate the analysis of complex experimental data.
 
 * **My Contribution:** I took the lead on developing the core R analytics engine. My primary responsibilities were to architect the data cleaning and validation functions and to implement the primary analysis logic, which automatically selects one of four distinct ANOVA models based on user input. I also communicated directly with the client-scientist to translate their research needs into technical requirements for the pipeline.
@@ -46,7 +59,7 @@ As part of a five-person team on a Master's level Data Science Project, we devel
 * **Public Demo:** An R Markdown file demonstrating the core logic of this automated pipeline, **[is available here](https://github.com/kimsta/R_Automated_ANOVA)**.
 * **Tech Stack:** R, Tidyverse, rstatix, broom.
 
-### 5. Enterprise Revenue Forecasting for CGI Finland
+### 7. Enterprise Revenue Forecasting for CGI Finland
 As part of a university course project, our team developed a revenue forecasting model for CGI Finland based a large historical transaction dataset.
 
 * **My Contribution:** I designed and implemented the core time series forecasting model using Python (Pandas, Statsmodels). My model used seasonal decomposition to accurately identify and predict complex trends and seasonal patterns.
