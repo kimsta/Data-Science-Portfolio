@@ -23,7 +23,7 @@ A rigorous fairness audit and mitigation pipeline for a Heart Failure prediction
 
 * **The Problem:** Through an intersectional audit (Age × Sex), I discovered a critical 4.5x Safety Disparity for young female patients compared to the reference group (older males). The standard model missed nearly 30% of heart failure cases in young women.
 * **The Solution:** I engineered a hybrid mitigation strategy using **Decoupled Classifiers** and **Threshold Tuning**. By training separate models for demographic subgroups and adjusting the decision boundary for the disadvantaged group, I successfully reduced the safety risk by ~50% without requiring additional data collection.
-* **Project Repository:** [Link](https://github.com/kimsta/fairness_bias_audit)
+* **Project Repository:** [View and run the code here](https://github.com/kimsta/fairness_bias_audit)
 * **Tech Stack:** Python, Scikit-learn, Pandas, Fairness Metrics.
 
 ### 3. Privacy-Preserving ML & Membership Inference Defense
@@ -31,7 +31,7 @@ A security audit demonstrating data leakage in Neural Networks and implementing 
 
 * **The Attack:** I simulated a **Membership Inference Attack (MIA)** using a counterfactual "Shadow Model" approach. The experiment proved that standard SGD models memorize specific training examples, creating a critical privacy leak (Privacy Gap: +0.13).
 * **The Defence:** I implemented **Differential Privacy** using the **Opacus** library ($\epsilon=1.0$). The audit confirmed that the DP-protected model successfully masked the presence of individual data points (Privacy Gap: ~0.00), rendering the attack ineffective while maintaining >90% accuracy.
-* **Project Repository:** [Link](https://github.com/kimsta/privacy_audit_mia)
+* **Project Repository:** [View and run the code here](https://github.com/kimsta/privacy_audit_mia)
 * **Tech Stack:** Python, PyTorch, Opacus, Scikit-learn.
 
 
