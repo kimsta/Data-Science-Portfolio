@@ -26,10 +26,13 @@ A rigorous fairness audit and mitigation pipeline for a Heart Failure prediction
 * **Project Repository:** [Link](https://github.com/kimsta/fairness_bias_audit)
 * **Tech Stack:** Python, Scikit-learn, Pandas, Fairness Metrics.
 
-### 3. NLP Pipeline for Automated Text Classification
-In a separate trainee project at VATT, I designed and delivered a complete two-stage NLP pipeline to classify thousands of unstructured, Finnish-language free form text entries.
+### 3. Privacy-Preserving ML & Membership Inference Defense
+A security audit demonstrating data leakage in Neural Networks and implementing Differential Privacy (DP-SGD) to secure the model against attacks.
 
-* **My Contribution:** I managed the end-to-end workflow. This included a modern approach to programmatic labeling using the Google Gemini API, and training `spaCy` models for both stages of the pipeline.
+* **The Attack:** I simulated a **Membership Inference Attack (MIA)** using a counterfactual "Shadow Model" approach. The experiment proved that standard SGD models memorize specific training examples, creating a critical privacy leak (Privacy Gap: +0.13).
+* **The Defence:** I implemented **Differential Privacy** using the **Opacus** library ($\epsilon=1.0$). The audit confirmed that the DP-protected model successfully masked the presence of individual data points (Privacy Gap: ~0.00), rendering the attack ineffective while maintaining >90% accuracy.
+* **Project Repository:** [Link](https://github.com/kimsta/privacy_audit_mia)
+* **Tech Stack:** Python, PyTorch, Opacus, Scikit-learn.
 
 
 ### 4. NLP Pipeline for Automated Text Classification
@@ -59,23 +62,17 @@ As part of a five-person team on a Master's level Data Science Project, we devel
 * **Public Demo:** An R Markdown file demonstrating the core logic of this automated pipeline, **[is available here](https://github.com/kimsta/R_Automated_ANOVA)**.
 * **Tech Stack:** R, Tidyverse, rstatix, broom.
 
-### 7. Enterprise Revenue Forecasting for CGI Finland
-As part of a university course project, our team developed a revenue forecasting model for CGI Finland based a large historical transaction dataset.
-
-* **My Contribution:** I designed and implemented the core time series forecasting model using Python (Pandas, Statsmodels). My model used seasonal decomposition to accurately identify and predict complex trends and seasonal patterns.
-* **Outcome:** The model was successfully delivered and accepted by the client, demonstrating a measurable improvement in forecast accuracy over their existing methods. The project was later decommissioned following internal organizational changes at CGI.
-* **Tech Stack:** Python, Pandas, NumPy, Matplotlib, Statsmodels.
-
 ---
 ## Technical Skills
 
 * **Languages:** Python, R, SQL
 * **Python Libraries:**
-    * **Deep Learning, ML & NLP:** PyTorch, PyTorch Geometric, scikit-learn, spaCy, statsmodels, joblib
+    * **Deep Learning & Privacy:** PyTorch, PyTorch Geometric, Opacus
+    * **ML & NLP:** scikit-learn, spaCy, statsmodels, joblib
     * **Data & Geospatial:** pandas, numpy, geopandas
-    * **Graph & Network:** igraph, graph-tool, NetworkX
+    * **Graph & Network:** igraph, graph-tool, NetworkX, NetworKit
     * **Visualization:** matplotlib
-* **R Libraries:** Shiny, R Markdown, Tidyverse (dplyr, ggplot2), knitr, pwr, rstatix, broom
+* **R Libraries:** Shiny, R Markdown, Tidyverse (dplyr, ggplot2), knitr, pwr, rstatix, broom, Stan
 * **APIs & Cloud:** Google Gemini API
 * **MLOps & Big Data:** Docker, Kubernetes (K8s), MLflow, Spark
 * **Version Control:** Git, GitHub
